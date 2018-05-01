@@ -1,0 +1,3 @@
+[submodule "PathPicker"]
+	path = PathPicker
+	url = https://github.com/zqb-all/PathPicker.git
