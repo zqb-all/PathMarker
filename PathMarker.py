@@ -14,14 +14,15 @@ if __name__ == "__main__":
         count = 0
         f = open(PathMarker_buffer_file,"w")
         for name in sys.stdin.readlines():
-            count += 1
-            sys.stdout.write("%d\t%s" % (count, name))
             result=parse.matchLine(name)
             if result:
+                count += 1
+                sys.stdout.write("%d\t%s" % (count, name))
                 f.write("%s\n" % result[0])
             else:
-                f.write("\n")
+                sys.stdout.write("\t%s" % (name))
         f.close
+
     if sys.argv[1] == "get":
         theline=linecache.getline(PathMarker_buffer_file, int(sys.argv[2])).strip()
         sys.stdout.write("vim %s" % theline)
