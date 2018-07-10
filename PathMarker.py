@@ -16,16 +16,17 @@ if __name__ == "__main__":
         for name in sys.stdin.readlines():
             result=parse.matchLine(name)
             if result:
+                path = parse.prependDir(result[0])
                 count += 1
                 sys.stdout.write("%d\t%s" % (count, name))
-                f.write("%s\n" % result[0])
+                f.write("%s\n" % path)
             else:
                 sys.stdout.write("\t%s" % (name))
         f.close
 
     if sys.argv[1] == "get":
-        theline=linecache.getline(PathMarker_buffer_file, int(sys.argv[2])).strip()
-        sys.stdout.write("vim %s" % theline)
-        os.system("vim %s" % theline)
+        theline=linecache.getline(PathMarker_buffer_file, int(sys.argv[3])).strip()
+        sys.stdout.write("%s %s" % (sys.argv[2], theline))
+        os.system("%s %s" % (sys.argv[2], theline))
 
 
