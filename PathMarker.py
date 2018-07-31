@@ -8,6 +8,7 @@ from  PathPicker.src import parse
 
 PathMarker_buffer_file = os.path.expanduser('~/.PathMarker')
 open(PathMarker_buffer_file, 'a').close()
+theline = ""
 
 if __name__ == "__main__":
     if sys.argv[1] == "set":
@@ -25,8 +26,14 @@ if __name__ == "__main__":
         f.close
 
     if sys.argv[1] == "get":
-        theline=linecache.getline(PathMarker_buffer_file, int(sys.argv[3])).strip()
-        sys.stdout.write("%s %s" % (sys.argv[2], theline))
-        os.system("%s %s" % (sys.argv[2], theline))
+        for i in range(2, len(sys.argv)):
+            if sys.argv[i].isdigit():
+                theline += ' '
+                theline += linecache.getline(PathMarker_buffer_file, int(sys.argv[i])).strip()
+            else:
+                theline += ' '
+                theline += sys.argv[i]
+        sys.stdout.write("%s\n" % theline)
+        os.system("%s" % theline)
 
 
