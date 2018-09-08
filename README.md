@@ -1,3 +1,4 @@
+
 # PathMarker
 
 PathMarker is a simple command line tool that solves the perpetual
@@ -5,6 +6,12 @@ problem of selecting files out of bash output.
 
 PathMarker is inspire by [guake terminal](https://github.com/Guake/guake),
 base on [Facebook PathPicker](https://github.com/facebook/PathPicker.git).
+
+It is easiest to understand by watching simple demos:
+
+<a href="https://asciinema.org/a/200252" target="_blank"><img src="https://asciinema.org/a/200252.png" width="597"/></a>
+
+<a href="https://asciinema.org/a/200253" target="_blank"><img src="https://asciinema.org/a/200253.png" width="597"/></a>
 
 ## Examples
 After installing PathMarker, using it is as easy as piping into `PathMarker set`.
