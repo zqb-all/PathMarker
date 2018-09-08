@@ -17,7 +17,7 @@ if __name__ == "__main__":
         for name in sys.stdin.readlines():
             result=parse.matchLine(name)
             if result:
-                path = parse.prependDir(result[0])
+                path = parse.prependDir(result[0], withFileInspection=True)
                 count += 1
                 sys.stdout.write("%d\t%s" % (count, name))
                 f.write("%s\n" % path)
