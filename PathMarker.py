@@ -5,6 +5,7 @@ import os
 import re
 import linecache
 from  PathPicker.src import parse
+from  PathPicker.src.formattedText import FormattedText
 
 PathMarker_buffer_file = os.path.expanduser('~/.PathMarker')
 open(PathMarker_buffer_file, 'a').close()
@@ -15,7 +16,8 @@ if __name__ == "__main__":
         count = 0
         f = open(PathMarker_buffer_file,"w")
         for name in sys.stdin.readlines():
-            result=parse.matchLine(name)
+            formattedLine = FormattedText(name)
+            result=parse.matchLine(str(formattedLine))
             if result:
                 path = parse.prependDir(result[0], withFileInspection=True)
                 count += 1
