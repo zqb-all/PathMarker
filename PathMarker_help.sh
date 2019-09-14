@@ -36,5 +36,6 @@ ffind()
 
 fcd()
 {
+	[ $# -eq 0 ] && return
 	cd `PathMarker.py fix $@`
 }
