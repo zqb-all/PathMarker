@@ -38,4 +38,15 @@ if __name__ == "__main__":
         sys.stdout.write("%s\n" % theline)
         os.system("%s" % theline)
 
+    if sys.argv[1] == "fix":
+        for i in range(2, len(sys.argv)):
+            if sys.argv[i].isdigit():
+                theline += ' '
+                theline += linecache.getline(PathMarker_buffer_file, int(sys.argv[i])).strip()
+            else:
+                theline += ' '
+                theline += sys.argv[i]
+        sys.stdout.write("%s" % theline)
+        os.system("echo %s" % theline)
+
 

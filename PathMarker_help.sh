@@ -1,21 +1,4 @@
 #!/bin/bash -
-#===============================================================================
-#
-#          FILE: PathMarker_help.sh
-#
-#         USAGE: ./PathMarker_help.sh
-#
-#   DESCRIPTION: 
-#
-#       OPTIONS: ---
-#  REQUIREMENTS: ---
-#          BUGS: ---
-#         NOTES: ---
-#        AUTHOR: YOUR NAME (), 
-#  ORGANIZATION: 
-#       CREATED: 2018年05月01日 16时15分46秒
-#      REVISION:  ---
-#===============================================================================
 
 v()
 {
@@ -35,4 +18,23 @@ mgit()
 gitmark()
 {
 	git -c color.ui=always $@ | PathMarker.py set | less -r -X -F
+}
+
+ffd()
+{
+	type fd > /dev/null 2>&1 && {
+		fd $@ | PathMarker.py set
+		return
+	}
+	find $@ | PathMarker.py set
+}
+
+ffind()
+{
+	find $@ | PathMarker.py set
+}
+
+fcd()
+{
+	cd `PathMarker.py fix $@`
 }

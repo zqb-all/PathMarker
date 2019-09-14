@@ -61,12 +61,16 @@ For easily to use PathMarker.py with git/vim, try source PathMarker_help.sh in .
 * `echo "source $(pwd)/PathMarker_help.sh" >> ~/.bashrc`
 * `source ~/.bashrc`
 
-Now you can use `t` as `git`, `v` as `vim`
-
+Now you can use `t` as `git`, `v` as `vim`, `fcd` as `cd`, `ffd` as `fd`, `ffind` as `find`
 * `t show`
 * `v 1`
+* `ffd src`
+* `ffind . -name src`
+* `fcd 1`
 
-If you don't like command `v` and `t`, just modify PathMarker_help.sh
+Note:
+If you don't have fd, ffd just same as ffind
+If you don't like these command, just modify PathMarker_help.sh
 
 ## License
 PathMarker is BSD-licensed.
