@@ -1,11 +1,22 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import sys
 import os
 import re
 import linecache
-from  PathPicker.src import parse
-from  PathPicker.src.formattedText import FormattedText
+
+if os.path.islink(__file__):
+    ABSPATH = os.path.join(os.path.abspath(os.path.realpath(os.path.dirname(os.readlink((__file__))))),
+            "PathPicker/src")
+else:
+    ABSPATH = os.path.join(os.path.abspath(os.path.realpath(os.path.dirname(__file__))), "PathPicker/src")
+
+sys.path.append(ABSPATH)
+# print (ABSPATH)
+# print (sys.path)
+import logger
+import parse
+from formattedText import FormattedText
 
 PathMarker_buffer_file = os.path.expanduser('~/.PathMarker')
 open(PathMarker_buffer_file, 'a').close()
@@ -17,9 +28,9 @@ if __name__ == "__main__":
         f = open(PathMarker_buffer_file,"w")
         for name in sys.stdin.readlines():
             formattedLine = FormattedText(name)
-            result=parse.matchLine(str(formattedLine))
+            result=parse.matchLine(str(formattedLine), allInput=True)
             if result:
-                path = parse.prependDir(result[0], withFileInspection=True)
+                path = parse.prependDir(result[0], withFileInspection=False)
                 count += 1
                 sys.stdout.write("%d\t%s" % (count, name))
                 f.write("%s\n" % path)
