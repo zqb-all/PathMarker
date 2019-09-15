@@ -28,7 +28,7 @@ if __name__ == "__main__":
         f = open(PathMarker_buffer_file,"w")
         for name in sys.stdin.readlines():
             formattedLine = FormattedText(name)
-            result=parse.matchLine(str(formattedLine), allInput=True)
+            result=parse.matchLine(str(formattedLine), allInput=False)
             if result:
                 path = parse.prependDir(result[0], withFileInspection=False)
                 count += 1
