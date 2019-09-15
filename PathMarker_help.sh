@@ -37,5 +37,8 @@ ffind()
 fcd()
 {
 	[ $# -eq 0 ] && return
-	cd `PathMarker.py fix $@`
+	local fcd_target=$(PathMarker.py fix $@)
+	[ ! -d "${fcd_target}" ] && fcd_target=${fcd_target%/*}
+	#echo "$fcd_target"
+	cd ${fcd_target}
 }

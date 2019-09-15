@@ -47,6 +47,5 @@ if __name__ == "__main__":
                 theline += ' '
                 theline += sys.argv[i]
         sys.stdout.write("%s" % theline)
-        os.system("echo %s" % theline)
 
 
