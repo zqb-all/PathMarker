@@ -38,6 +38,21 @@ if __name__ == "__main__":
                 sys.stdout.write("\t%s" % (name))
         f.close
 
+    if sys.argv[1] == "setall":
+        count = 0
+        f = open(PathMarker_buffer_file,"w")
+        for name in sys.stdin.readlines():
+            formattedLine = FormattedText(name)
+            result=parse.matchLine(str(formattedLine), allInput=True)
+            if result:
+                path = parse.prependDir(result[0], withFileInspection=False)
+                count += 1
+                sys.stdout.write("%d\t%s" % (count, name))
+                f.write("%s\n" % path)
+            else:
+                sys.stdout.write("\t%s" % (name))
+        f.close
+
     if sys.argv[1] == "get":
         for i in range(2, len(sys.argv)):
             if sys.argv[i].isdigit():

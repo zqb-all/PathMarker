@@ -23,15 +23,15 @@ gitmark()
 ffd()
 {
 	type fd > /dev/null 2>&1 && {
-		fd $@ | PathMarker.py set
+		fd $@ | PathMarker.py setall
 		return
 	}
-	find $@ | PathMarker.py set
+	find $@ | PathMarker.py setall
 }
 
 ffind()
 {
-	find $@ | PathMarker.py set
+	find $@ | PathMarker.py setall
 }
 
 fcd()
@@ -43,5 +43,5 @@ fcd()
 		fcd_target=${fcd_target%/*}
 	}
 	# echo ${fcd_target}
-	cd "${fcd_target}"
+	cd ${fcd_target}
 }
