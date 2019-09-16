@@ -9,9 +9,7 @@ base on [Facebook PathPicker](https://github.com/facebook/PathPicker.git).
 
 It is easiest to understand by watching simple demos:
 
-<a href="https://asciinema.org/a/200252" target="_blank"><img src="https://asciinema.org/a/200252.png" width="597"/></a>
-
-<a href="https://asciinema.org/a/200253" target="_blank"><img src="https://asciinema.org/a/200253.png" width="597"/></a>
+![image](https://github.com/zqb-all/PathMarker/blob/master/demo/demo1.gif)
 
 ## Examples
 After installing PathMarker, using it is as easy as piping into `PathMarker set`.
